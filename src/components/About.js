@@ -3,6 +3,7 @@ import { UserContext } from '../App';
 import {useNavigate} from 'react-router-dom';
 import './About.css';
 import userimg from '../static/user.png';
+import {axios} from 'axios';
 
 function About() {
 
@@ -11,15 +12,26 @@ function About() {
   const [userData, setUserData] = useState({});
 
   const callAboutPage = async ()=>{      
+      // try {
+      //   const res = await fetch('/about', {
+      //     method: 'GET',
+      //     headers : {
+      //       Accept : 'application/json',
+      //       'Content-Type' : 'application/json'
+      //     },
+      //     credentials : 'include'
+      //   });
+      //   const data = await res.json();
+      //   setUserData(data);
+      //   dispatch({type: 'USER', payload: true});
+      //   if(!res.status === 200){
+      //     throw new Error(res.error);
+      //   }
+      // } catch (error) {
+      //     navigate('/authuser');
+      // }
       try {
-        const res = await fetch('/about', {
-          method: 'GET',
-          headers : {
-            Accept : 'application/json',
-            'Content-Type' : 'application/json'
-          },
-          credentials : 'include'
-        });
+        const res = await axios.get('https://inotes-back.herokuapp.com/about');
         const data = await res.json();
         setUserData(data);
         dispatch({type: 'USER', payload: true});
