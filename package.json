@@ -3,7 +3,26 @@
   "homepage": "https://JaideepSheoran.github.io/inotesfront",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://inotes-back.herokuapp.com",
+  "proxy": {
+    "/about": {
+      "target": "https://inotes-back.herokuapp.com"
+    },
+    "/authuser": {
+      "target": "https://inotes-back.herokuapp.com"
+    },
+    "/adduser": {
+      "target": "https://inotes-back.herokuapp.com"
+    },
+    "/contact": {
+      "target": "https://inotes-back.herokuapp.com"
+    },
+    "/addnote": {
+      "target": "https://inotes-back.herokuapp.com"
+    },
+    "/searchnote": {
+      "target": "https://inotes-back.herokuapp.com"
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -19,7 +38,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
